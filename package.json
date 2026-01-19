@@ -1,0 +1,54 @@
+{
+  "name": "skills-manager-template",
+  "displayName": "Skills Manager Template",
+  "description": "Minimal VS Code extension template: Activity Bar icon + sidebar management page (Webview).",
+  "version": "0.0.1",
+  "publisher": "zhangyuefang",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:skillsView",
+    "onCommand:skills.openPanel"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "skillsSidebar",
+          "title": "Skills",
+          "icon": "icons/skills.svg"
+        }
+      ]
+    },
+    "views": {
+      "skillsSidebar": [
+        {
+          "id": "skillsView",
+          "name": "Skills Manager"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "skills.openPanel",
+        "title": "Open Skills Panel"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "prepack": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^5.0.0",
+    "vscode": "^1.77.0"
+  }
+}
